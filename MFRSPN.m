@@ -1,0 +1,1 @@
+img = imread('C:\Users\nnabi\Documents\Octave\Images\RNDM\cameraman.tif');isp = imnoise(img,'salt and pepper',0.1);figure, imshow(isp);a = fspecial('average');a1 = filter2(a,isp);figure,imshow(a1);figure,imshow(unit8(a1));mod = medfilt2(isp);figure,imshow(mod);i2 = ordfilt2(isp, 25, ones(5,5));figure,imshow(i2);

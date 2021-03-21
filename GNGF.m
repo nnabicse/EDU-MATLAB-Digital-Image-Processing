@@ -1,0 +1,11 @@
+img = imread('C:\Users\nnabi\Documents\Octave\Images\RNDM\cameraman.tif');
+an=imnoise(img, 'gaussian',0.01);
+figure,imshow(an);
+sigma=3;
+cutoff=ceil(3*sigma);
+h= fspecial('gaussian',2*cutoff +1, sigma);
+out=conv2(img,h,'same');
+figure, imshow(out/256);
+w = wiener2(an,[5,5]);
+figure, imshow(w);
+surf(1:2*cutoff+1,1:2*cutoff+1,h);
